@@ -14,7 +14,7 @@ Tracking and adding changes helps developers to fix, revise, modify, and develop
 A commit is a snapshot of the change a programmer requests to make in the master version. When leaving a commit message, it is best to use the imperative form of the verb, mimicking the verbs used in git commands. The HEAD^ refers to the commit one is currently on.
 
 The three stages of git change are fork and cloning the master repository to create a remote user repository; creating a new branch to make changes, then add and commit the changes; push the changes from the new branch to the remote repository and make a pull request, which upon approval then merges into the master repository.
-Git Commands to Commit Changes:
+Git Commands:
 -git clone [URL remote user repository]
 -git checkout –b [branch name]
 -git status (use this anytime to check where you are in the workflow)
