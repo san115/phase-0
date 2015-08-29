@@ -1,7 +1,7 @@
-This is the wireframe for the index ![wireframe index](/san115/san115.github.io/wireframe-index.jpg)
+This is the wireframe for the index ![wireframe  index](https://github.com/san115/san115.github.io/blob/master/wireframe-index.jpg)
 
 
-This is the wireframe for the blog ![wireframe blog](/san115/san115.github.io/wireframe-blog.jpg)
+This is the wireframe for the blog ![blog](https://github.com/san115/san115.github.io/blob/master/wireframe-blog-index.JPG)
 
 
 **What is a wireframe?**
