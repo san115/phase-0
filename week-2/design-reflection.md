@@ -1,4 +1,4 @@
-Here is my ![site-map](/imgs/site-map.jpg)
+Here is my ![site map](imgs/site-map.jpg)
 
 
 *1.	What are the 6 Phases of Web Design?*
