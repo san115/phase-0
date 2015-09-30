@@ -14,15 +14,22 @@
 # Initial Solution
 
 class Die
-  def initialize(labels)
+  def initialize(labels, sides)
+  	@labels = labels
+  	@sides = sides
+  end
+
+  def labels
+  	@labels
   end
 
   def sides
+  	@sides
   end
 
   def roll
   	if empty?
-  		raise ArgumentError, "There are no"
+  		raise ArgumentError.new, "There are no"
   end
 end
 
