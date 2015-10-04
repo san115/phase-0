@@ -18,13 +18,13 @@ bigger_better_number = favorite_number + 1
 puts favorite_number.to_s + " is a good number, but " + bigger_better_number.to_s + " is a bigger and better number, dont\'t you think?"
 
 # How do you define a local variable?
-# A local variable works within a mathod, so they are defined within the method. The can be defined when method is defined or inside the method.
+# A local variable works within a mathod, so they are defined within the method.
 # How do you define a method?
-# A method is defined by a name and the local variables it uses.
+# A method is defined by giving it a name and the local variables it uses.
 # What is the difference between a local variable and a method?
-# Local variables work within the method, and methods contain contain ways to perofme a task.
+# Local variables work within the method, and methods contain ways or operations using local variables to perform a task.
 # How do you run a ruby program from the command line?
-# By calling up the irb with the command "irb", one can run the ruby progea,
+# By calling up the irb with the command "irb"
 # How do you run an RSpec file from the command line?
 # type "rspec [name of spec file]"
 # What was confusing about this material? What made sense?
