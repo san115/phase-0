@@ -16,18 +16,17 @@ def shortest_string(list_of_words)
     return nil
   elsif list_of_words.count == 1
     return list_of_words[0].to_s
-  else
- 
-  x = 1
-  shortest = list_of_words[x]
-  while x < (list_of_words.count - 1)
-    list_of_words.each do |word|
-      if word.to_s.length.to_i < shortest.to_s.length.to_i
+  else 
+    x = 1
+    shortest = list_of_words[x]
+    while x < (list_of_words.count - 1)
+      list_of_words.each do |word|
+        if word.to_s.length.to_i < shortest.to_s.length.to_i
           shortest = word
-      end
-      x += 1     
-    end 
-  end
+        end
+        x += 1     
+      end 
+    end
   return shortest
   end
 end
