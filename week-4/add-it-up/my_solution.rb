@@ -4,7 +4,7 @@
 # include it in this file. Also make sure everything that isn't code
 # is commented in the file.
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [with: John Polhill].
 
 # 0. total Pseudocode
 # make sure all pseudocode is commented out!
@@ -22,13 +22,13 @@
 
 # return total sum
 
-# # 3. total refactored solution
-def total(numbers)
- 	sum = 0
- 	numbers.each do |number|
- 	sum = sum + number
-    end
-  return sum
+def total(num_list)
+  result = 0
+  for i in 0..num_list.length
+    result += num_list[i].to_f
+  end
+  
+  return result
 end
 
 
@@ -40,15 +40,28 @@ end
 # do an each loop on the arraryto add up each number
 
 
-# 5. sentence_maker initial solution
-# def total(numbers)
-#  	sum = 0
-#  	numbers.each do |number|
-#  	sum = sum + number
-# end
-# return sum
-# end
+def sentence_maker(list)
+  result = ""
+  for i in 0..list.length - 1
+    if i == list.length - 1
+      result += list[i].to_s
+    else
+      result += list[i].to_s + " "
+    end
+  end
+   
+  result.capitalize!
+  result += "."
+  return result
+end
 
 
 # 6. sentence_maker refactored solution
 # (numbers).reduce(:+)
+
+def sentence_maker(list)
+  return list.join(" ").capitalize! + "."
+end
+
+
+
