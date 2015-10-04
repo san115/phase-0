@@ -6,15 +6,15 @@
 # Your Solution Below
 def get_grade(average)
   if average >= 90
-    return "A"
-    elsif average >= 80 && average < 90
-    return "B"
-    elsif average >= 70 && average < 80
-    return "C"
-    elsif average >= 60 && average < 70
-    return "D"
-    
-  else average < 60
-    return "F"
+    'A'
+  elsif average >= 80
+    'B'
+  elsif average >= 70
+    'C'
+  elsif average >= 60
+    'D'
+  else
+    'F'
   end
-end  
+    
+end
