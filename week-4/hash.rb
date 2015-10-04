@@ -6,13 +6,20 @@
 # Your Solution Below
 
 # my_info is empty to start.  Edit this!
-my_info = Hash.new
-my_info["George"] = "first_name"
-my_info["Washington"] = "last_name"
-my_info[Westmoreland County"] = "hometown"
-my_info[283] = "age"
+my_info = {
+  first_name:"George",
+  last_name: "Washington",
+  hometown: "Westmoreland County",
+  age: 283,
+}
 
-
+my_info.each do |key, value| 
+  if key == "first_name" || "last_name" || "hometown" && value != " "
+    puts "#{key}: #{value}"
+  elsif key == "age" && value > 0
+    puts "#{key}: #{value}"
+  end
+end
 
 
 
