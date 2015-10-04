@@ -15,42 +15,15 @@
 # Your Solution Below
 # Below code won't work, but not sure I understand the assignment.
 def count_between(list_of_integers, lower_bound, upper_bound)
-  if list_of_integers.length == 0
-  	return 0
-  end
+  return 0 if list_of_integers.empty? 
+  return 0 if list_of_integers.count == 1 && (list_of_integers[0] == lower_bound && upper_bound)
 
-  if upper_bound < lower_bound
-  	return 0
-  end
-
+  between = 0
   list_of_integers.each do |x|
-    x = 0
-  	if list_of_integers[x] == lower_bound && list_of_integers ==upper_bound
-  		return list_of_integers.count
-    
-    elsif list of integers[x] < lower_bound
-    	return false
-    elsif list_of_integers[x] > upper_bound
-    	return false
-    	x +=1
-    end
-
-def array_concat(array_1, array_2)
-  if array_1.length == 0 && array_2.length == 0
-  	return 2
-  else
-	concatenate = array_1 + array_2
-	return concatenate
- end
+    if x >= lower_bound && x <= upper_bound
+       between += 1
+    end     
+  end
+  return between 
 end
-
-def array_concat(array_1, array_2)
-  if array_1.length == 0 && array_2.length == 0
-  	return 2
-  else
-	concatenate = array_1 + array_2
-	return concatenate
- end
-end
-
-d
+   
