@@ -12,24 +12,47 @@
 
 # Your Solution Below
 def smallest_integer(list_of_nums)
-  if list_of_nums.count == 0
+  if list_of_nums.empty?
     return nil
-	elsif list_of_nums.count == 1
-    return 0 
-  elsif list_of_nums.count == 1 && list_of_nums[0] == -10
-    return -10 
+  elsif list_of_nums.count == 1
+    return list_of_nums[0]
   else
-
-   list_of_nums.each do |x|
-  	x = 0
-    while x < list_of_nums.count
-  	  if list_of_nums[x] < list_of_nums[x + 1]
-  		 smallest = list_of_nums[x]
-      end
-      x += 1
+    counter = 1
+    while counter < (list_of_nums.size - 1)
+      smallest = list_of_nums[counter]
+      list_of_nums.each do |x|
+      if x <= smallest     
+        smallest = x
+      end 
+      counter += 1
+    end 
+    return smallest
     end
-      return smallest
-    end
-    
   end
+end
+
+# def smallest_integer(list_of_nums)
+#   if list_of_nums.empty?
+#     return nil
+#   elsif list_of_nums.count == 1
+#     return list_of_nums[0]
+#   end
+
+#   counter = 1
+#   while counter < (list_of_nums.size - 1)
+#     smallest = list_of_nums[counter]
+#     list_of_nums.each do |x|
+#       if x <= smallest     
+#         smallest = x
+#       end 
+#     counter += 1
+#    end 
+#     return smallest
+#   end
+# end
+
+# Refactor
+def smallest_integer(list_of_nums)
+  list_of_nums.sort!
+  return list_of_nums[0]
 end
