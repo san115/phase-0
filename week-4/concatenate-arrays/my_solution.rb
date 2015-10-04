@@ -19,7 +19,6 @@ def array_concat(array_1, array_2)
   end
 end
 
-
 # Refactor
 def array_concat(array_1, array_2)
 	concatenate = array_1 + array_2
