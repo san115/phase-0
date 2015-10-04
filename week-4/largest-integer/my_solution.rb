@@ -12,27 +12,31 @@
 
 # Your Solution Below
 def largest_integer(list_of_nums)
-  if list_of_nums.count == 0
-  	puts false
-  end
-
+  if list_of_nums.empty?
+    return nil
   elsif list_of_nums.count == 1
-	puts 0
-  end
-
-  elsif list_of_nums.count == 1 && list_of_nums[0] == -10
-    return -10 
-
-  else list_of_nums.each do |x|
-  	x = 0
-    while x < list_of_nums 
-  	 if list_of_nums[x] > list_of_nums[x + 1]
-  		largest = list_of_nums[x] 	
-     end
-     x ++ 1
+    return list_of_nums[0]
+  else
+  
+  counter = 1
+  while counter < list_of_nums.size - 1
+    largest = list_of_nums[counter]
+    list_of_nums.each do |x|
+      if x >= largest
+        largest = x
+      end
+      counter += 1
     end
-   return largest
+    return largest
   end
+  end
+end
+
+
+# Refactor
+def largest_integer(list_of_nums)
+  list_of_nums.sort!.reverse!
+  return list_of_nums[0]
 end
 
 

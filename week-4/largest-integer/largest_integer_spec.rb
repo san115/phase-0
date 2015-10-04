@@ -33,3 +33,7 @@ describe 'largest_integer' do
 
   it "returns the largest negative integer regardless of ordering" do
     array = (-100..-10).to_a.shuffle
+
+    expect(largest_integer(array)).to eq -10
+  end
+end
