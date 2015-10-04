@@ -1,24 +1,20 @@
 # Factorial
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [with: John Polhill].
 
 
 # Your Solution Below
 def factorial(number)
-	if number == 0 || number == 1
-     return 1
+  return 1 if number == 0
+  
+  result = 1
+  while number > 1
+  	result = result * number
+  	number -= 1
   end
-   product = 1
-   while number > 2	
-	   var = number * (number - 1)
-       product = product * var
-	   number -= 1
-   end
-   return product
+ return result
 end
+  
 
-
-
-#
 
  
