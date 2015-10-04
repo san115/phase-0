@@ -14,27 +14,26 @@
 # Your Solution Below
 def longest_string(list_of_words)
   if list_of_words.count == 0
-    return false
+    return nil
+  elsif list_of_words.count == 1
+    return list_of_words[0]
+  else
+    x = 1
+    longest = list_of_words[x]
+    while x < list_of_words.count - 1
+      list_of_words.each do |word|
+        if word.to_s.length >= longest.to_s.length
+          longest = word
+        end
+        x += 1
+      end
+    end  
+    return longest
   end
-
-  else list_of_words.count == 1
-	 return " "
-  end
- 
-  if list_of_words == 1 && list_of_words(0) == "cat"
-   return "cat"
-  end
-
-  else list_of_words.each do |x|
-  	x = 0
-    while x < list_of_words.count
-  	if list_of_words[x].length > list_of_words[x + 1].length
-  		longest = list_of_words[x]
-  	end
-    x += 1
-  end
-  return longest
-  end
-
 end
 
+
+# Refactor
+def longest_string(list_of_words)
+  p list_of_words.max_by { |x| x.length}
+end
