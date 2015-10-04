@@ -13,29 +13,27 @@
 #Your Solution Below
 def shortest_string(list_of_words)
   if list_of_words.count == 0
-  	puts false
-  end
-
-  else list_of_words.count == 1
-	puts " "
-  end
+    return nil
+  elsif list_of_words.count == 1
+    return list_of_words[0].to_s
+  else
  
-  if list_of_words.count == 1 && list_of_words[0] == "cat"
-  	puts "cat"
+  x = 1
+  shortest = list_of_words[x]
+  while x < (list_of_words.count - 1)
+    list_of_words.each do |word|
+      if word.to_s.length.to_i < shortest.to_s.length.to_i
+          shortest = word
+      end
+      x += 1     
+    end 
   end
-
-  else list_of_words.each do |x|
-  	x = 0
-    while x < list_of_words.count
-  	 if list_of_words[x].length > list_of_words[x + 1].length
-  		shortest = list_of_words[x]
-  	 end
-     x += 1
-    end
-   return shortest
+  return shortest
   end
-
 end
 
-
+# Refactor
+def shortest_string(list_of_words)
+  p list_of_words.min_by { |x| x.length}
+end
 
