@@ -1,8 +1,8 @@
 # Pad an Array
 
-# I worked on this challenge [by myself, with: Kristie Chow ]
+# I worked on this challenge [by myself, with: ]
 
-# I spent [1.5] hours on this challenge.
+# I spent [] hours on this challenge.
 
 
 # Complete each step below according to the challenge directions and
@@ -10,86 +10,97 @@
 # is commented in the file.
 
 
+
 # 0. Pseudocode
 
-## What is the input? An array and the minimum size of the array
-# What is the output? (i.e. What should the code return?) An array with the number of elements equal to the minimum size (padding)
-# What are the steps needed to solve the problem?
-#1. Create two methods (pad and pad!) that accepts a minimum of two arguments each and an optional argument of what the array should be "padded" with
-#2. Compare the size of the array with the specified minimum size
-#3. If the size is not the same, then pad the array with either the default value (nil) or a specified value
-
+# What is the input? an array and the mininum size of the array
+# What is the output? (i.e. What should the code return?) ran array with at least
+# the minimum size of array with default value to fill the minimum size requirement if less
+# than minimum size
+# What are the steps needed to solve the problem? 
+# -compare the size of array with minimum size:
+# --if array size is bigger than or the same as minimum size, then return the array
+# --if array size is smaller, than add value to the array, until the array size equals
+# -- minimum size; value should be default value if none other is given or if given then
+# -- as indicated
+# --one method will destructive, meaning that the elements in the array will be changed
+# --one method will be non-destructive, meaning that the elements in the array will not be
+#   changed permantly
 
 
 # 1. Initial Solution
-
 def pad!(array, min_size, value = nil) #destructive
-  array.clone!
   if min_size < array.length || min_size == array.length 
-    p array
+    return array
   else 
     x = min_size - array.length
     x.times do
       array.push(value)
     end
-    p array
+    return array
   end
 end
 
 
 def pad(array, min_size, value = nil) #non-destructive
-  array.clone 
   if min_size < array.length || min_size == array.length 
-    p array
+    array = array.clone
+    return array
   else
+    array = array.clone
     x = min_size - array.length
     x.times do
       array.push(value)
     end
-  p array
+  return array
   end
 end
 
 
-pad!([1, 2, 3], 5, 'apple')
-pad([1, 2, 3], 5, 'apple')
+# 3. Refactored Solution--made only one small adjustment; didn't find other
+# ways to simplify
+# 
+def pad!(array, min_size, value = nil) #destructive
+  if min_size <= array.length 
+    return array
+  else 
+    x = min_size - array.length
+    x.times do
+      array.push(value)
+    end
+    return array
+  end
+end
 
-# 3. Refactored Solution
-# The way we approached the solution, I'm not sure there is anything else to refactor. During the process of writing,
-# the code, we made adjustments, however did not record them.
 
+def pad(array, min_size, value = nil) #non-destructive
+  if min_size <= array.length
+    array = array.clone
+    return array
+  else
+    array = array.clone
+    x = min_size - array.length
+    x.times do
+      array.push(value)
+    end
+  return array
+  end
+end
 
 # 4. Reflection
-# Were you successful in breaking the problem down into small steps? Yes, we reasoned that to approach the problem, we needed 
-# to ompare the size of the array with the minimum size.
-# Once you had written your pseudocode, were you able to easily translate it into code? What difficulties and successes did 
-# you have? It didn't take long to figure out the types of codes to use. We spent much more time over the details, such as
-# typos.
-# Was your initial solution successful at passing the tests? If so, why do you think that is? If not, what were the errors 
-# you encountered and what did you do to resolve them? We spent a bit of time getting errors for when the minimum size was less
-# than the array, but luckily, we reviewed the conditions given for the assignment and was able to fix it.
-# When you refactored, did you find any existing methods in Ruby to clean up your code? We used push to pad/add to the array
-# and the clone method to preserve an original version
-# How readable is your solution? Did you and your pair choose descriptive variable names? We didn't use descriptive names for variables.
-# What is the difference between destructive and non-destructive methods in your own words? The difference is that
-# destructive permanently make changes to the object, where as non-destructive alters the state momentarily or for the given 
-# instance. Hence, the use of "!" when destructive, as a warning that the object is going to change.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Were you successful in breaking the problem down into small steps? Yes, figured out that I can use the array length to
+# compare with the minimum size, then by subtracting can figure out the amount of padding needed. Then just needed to set up
+# a loop to pad the array.
+# Once you had written your pseudocode, were you able to easily translate it into code? What difficulties and successes did you have?
+# For the most part setting up the if/else statement and loop didn't take too long. However, figuring out how to create
+# non-destructive method, while going through the same steps took much longer to figure out. Once I found the clone method, it
+# took a while longer to figure out how to use it--in this case, declaring a clone of itself. 
+# Was your initial solution successful at passing the tests? If so, why do you think that is? If not, what were the errors you 
+# encountered and what did you do to resolve them?
+# The errors I encountered had to do with no creating non-destructive method. It was the process of figuring out how to use clone
+# method.
+# When you refactored, did you find any existing methods in Ruby to clean up your code? I'm sure there are but I wasn't able to find them.
+# How readable is your solution? Did you and your pair choose descriptive variable names? I think the soution is fairly readable. It probably
+# could be shorter and more concise.
+# What is the difference between destructive and non-destructive methods in your own words? Destructive methods alters the data or information, where as
+# nondestructive methods creates changes just for the instance and does not create permanent change in the data or information.
