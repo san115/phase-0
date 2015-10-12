@@ -15,46 +15,39 @@
 
 
 # 1. Initial Solution
-
 class Die
   def initialize(sides)
     @sides = sides
-  end
-
-  def sides
-    @sides = 6 
     if @sides < 1
-      raise ArgumentError, 'sides is less than 1'
+      raise ArgumentError.new("sides is less than 1")
     end
   end
 
+  def sides
+    @sides 
+  end
+
   def roll
-    roll = prng.rand(6) 
+    rand(1..@sides) 
   end
 end
-
-die = Die.new(6)
-die.sides
-
 
 # 3. Refactored Solution
 #  not sure what can be refactored
 
 
+
 # 4. Reflection
 # What is an ArgumentError and why would you use one? An ArgumentError happens when the arguments in the code is wrong, the
-# information provided in the argument that gets called does not match up with the conditions of the argument. For example, if  
-# two arguments get called out for a function that requires only one, or the argument is out of range.
-
-# What new Ruby methods did you implement? What challenges and successes did you have in implementing them? I tried to use raise
-#  to call an exception to notify for ArgumentError and the rand. Unfortunately, I don't think I succeeded
-# What is a Ruby class? A Ruby class provide the features and functions for an object. It defines how the object acts and reacts, its set up or
+# information provided in the argument that gets called does not match up with the conditions of the argument. For example, 
+# In this case, the error occurs when sides are less than 1, since die needs to have at least one side.
+# What new Ruby methods did you implement? What challenges and successes did you have in implementing them? 
+# I raised an Argument Error and the rand method to create a random roll of dic.
+# What is a Ruby class? A Ruby class provides the features and functions for an object. It defines how the object acts and reacts, its set up or
 # conditions in which it works, and so on. For example, one can use Ruby class for setting up accounts.
-
 # Why would you use a Ruby class? Using a Ruby class for an object means that you can use the same class repeatedly for each time
-# the object gets used. A Ruby class can also inherit information from a different class and then modify it to be passed down,
-# inheritance from parent to child, which also is useful in cutting down on redundancy.
-# 
+# the object gets used. A Ruby class also has inheritance, so inherits information from a parent class,which can also be modified and passed down,
+# Inheritance from parent to child is useful in cutting down on redundancy.
 # What is the difference between a local variable and an instance variable? Local variables are bound to the method in which they reside,
 # whereas instance variables are bound within a class, so instance variables will function in different methods that are within the 
 # class.
