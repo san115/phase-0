@@ -12,45 +12,67 @@
 
 # 0. Pseudocode
 
-# What is the input?
-# an array of numbers or strings
-# What is the output? (i.e. What should the code return?)
-# show the number or item from the array that appears the most frequently
-# IF all the numbers or items from array occur the same amount of fequency, then return all in the array
+# What is the input? array with strings or numbers as elements
+# What is the output? (i.e. What should the code return?) return the most frequent value in the array
 # What are the steps needed to solve the problem?
-# show the number or item from the array that appears the most frequently
-# 	--add up the frequency of each item in the array and return the item with the highest frequency
-# IF all the numbers or items from array occur the same amount of fequency, then return all in the array
-# 	--
-
-
+# --create a new hash that contains the element of the array as key and frequency of the element in the 
+#   array as value
+# --create a new array that contain the frequency for each element and sort by highest and lowest frequency
+# --compare highest and lowest frequency--if both are equal, return all the elements otherwise return the elements 
+# --with the highest frequency--including if there is more than one element with highest frequency
 
 
 
 # 1. Initial Solution
 def mode(array)
-  frequent = Hash.new
+  frequency = Hash.new
   array.each do |x|
     array.count(x)
-    frequent[x] = array.count(x)
+    frequency[x] = array.count(x)
   end
-  max = frequent.max_by { |x, y| x}
-  p max
+
+  most_frequent = Array.new
+  max = frequency.max_by { |x, y| y}
+  min = frequency.min_by { |x, y| y}
+  if min == max
+    frequency.each do |x,y| 
+      most_frequent = most_frequent.push(x)
+    end
+  else
+    most_frequent[0] = max[0]
+  end
+  return most_frequent
 end
 
-mode([1, 2, 3, 3])
-mode ([4, 5, 0, 0])
-mode([1.5, -1, 1, 1,5])
-mode([1, 1, 2, 2])
-mode([1, 2, 3])
-mode(["who", "what", "where", "who"])
 
 # 3. Refactored Solution
-# I think I was refactoring as I was going along, but did not keep track of the changes.
+def mode(array)
+  frequency = Hash.new
+  array.each do |x|
+    frequency[x] = array.count(x)
+  end
+
+  most_frequent = Array.new
+  max = frequency.max_by { |x, y| y}
+  min = frequency.min_by { |x, y| y}
+  if min == max
+    frequency.each do |x,y| 
+      most_frequent.push(x)
+    end
+  else
+    most_frequent[0] = max[0]
+  end
+  return most_frequent
+end
 
 
 
 # 4. Reflection
+# Which data structure did you and your pair decide to implement and why?
+# Were you more successful breaking this problem down into implementable pseudocode than the last with a pair? 
+# What issues/successes did you run into when translating your pseudocode to code?
+# What methods did you use to iterate through the content? Did you find any good ones when you were refactoring? Were they difficult to implement?
+
 # Which data structure did you and your pair decide to implement and why? Put the information from the array into a
 # a hash, as was mentioned in the hint. Took the frequency ofthe numbers in the array and then set key as the number
 # and frequency as value. The looked for the value that was the greatest in the hash.
@@ -62,4 +84,3 @@ mode(["who", "what", "where", "who"])
 # What methods did you use to iterate through the content? Did you find any good ones when you were refactoring? Were 
 # they difficult to implement? I used each method to iterate. It seemed to be the best way as the plan was to import 
 # each piece of information into a new collection.
-
