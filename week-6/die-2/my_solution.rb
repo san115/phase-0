@@ -11,6 +11,10 @@
 # Output: when Die#roll is called, returns one of the strings. If Die.new 
 #   passes empty array, raise ArgumentError
 # Steps:
+#  --initialize an arry as argument and raise Argument Error if arry is empty
+#  --set sides to equal to the size of the array
+#  --assign each element of the array to a side so each side has a label
+#  --create a random roll that returns the label assigned to a side
 
 
 # Initial Solution
