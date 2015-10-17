@@ -1,91 +1,140 @@
-# I worked on this challenge [by myself, with: Zino, Choi].
-# I spent [1] hours on this challenge.
+# Class Warfare, Validate a Credit Card Number
+
+
+# I worked on this challenge [by myself, with: ].
+## # Class Warfare, Validate a Credit Card Number
+
+
+# I worked on this challenge [by myself, with: Steven Broderick, Un Choi].
+# I spent [#] hours on this challenge.
 
 # Pseudocode
 
-# Input: A 16-digit number
-# Output: True/False value
+# Input: 16-digit integer
+# Output: true or false
 # Steps:
-# Turn input number into a String, and then into an array using split
-# if the array length isn't 16, raise argumenterror
-# Find the second to last index of the array
-# double every other number until we reach index 0
-# go through the array:
-# for any value that's larger/equal to 10, we turn that into sum of the digits
-# calculate sum of all values
-# divide the sum by 10
-# if remainder equals 0, return true; else return false
+
+# define method initialize that takes one argument(card_number)
+#  --convert card_number to string
+#  --Set instance variable @card_number = card_number
+#     IF card_number does not equal 16, raise ArgumentError
+
+# define method double_every_other
+# --from the second-to-last digit, double every other digit until the first digit
+#   --enter digits in card_number to an array(card_number_array)
+#   --set counter at 14
+#   --set while loop--WHILE counter is greater than or equals to zero:
+#       --double card_number_array at index[counter] 
+#       --subtract 2 from counter
+#   --return card_number_array
+
+# define method sum_numbers(card_number_array)
+# --sum all the doubled digits plus the remainder of the digits
+# --for each number in card_number_array:
+#   --IF number is greater than 9
+#       --convert number to string and convert index 0 and index 1 to integer. Then add index 0 and index 1
+#  --set variable sum equal to the total sum of each number in the card_number_array 
+#  --return sum
+
+
+# define method check_card
+# -- call sum_numbers on double_every_other
+# --if the total sum_numbers is a multiple of 10, valid number so return true, else false
+
+
 
 
 # Initial Solution
+# class CreditCard
+#   def initialize(card_number)
+#     @card_number = card_number.to_s
+    
+#     if @card_number.length != 16
+#       raise ArgumentError.new("Number does not have 16 digits")
+#     end
+#   end
+  
+#   def double_every_other
+#     @card_number_array = @card_number.split(//)
+    
+#     counter = 14
+#     while counter >= 0
+#       @card_number_array[counter] = @card_number_array[counter].to_i * 2
+#       counter -= 2
+#     end
+    
+#     @card_number_array.map! { |number| number.to_i }
+#   end
+  
+#   def sum_numbers(card_number_array)
+#     sum = 0
+    
+#     card_number_array.map! do |number|
+#       if number > 9
+#         number = number.to_s[0].to_i + number.to_s[1].to_i
+#       end
+#       sum += number
+#     end
+    
+#     sum
+#   end
+  
+#   def check_card
+#     sum = sum_numbers(double_every_other)
+#     if sum % 10 == 0
+#       true
+#     else
+#       false
+#     end
+#   end
+# end
 
-# Don't forget to check on initialization for a card length
-# of exactly 16 digits
-
-
+# Refactored Solution
 class CreditCard
-  def initialize(input)
-    @input=input.to_s.split('')
-    if @input.length !=16
-      raise ArgumentError.new("Your number is not 16-digits")
-    end
+  def initialize(card_number)
+    @card_number = card_number.to_s
+    
+    raise ArgumentError.new("Number does not have 16 digits") if @card_number.length != 16
+  end
+
+  def double_every_other
+    @card_number_array = @card_number.split(//)
+
+    counter = 14
+    while counter >= 0
+      @card_number_array[counter] = @card_number_array[counter].to_i * 2
+      counter -= 2
+    end 
+    
+    @card_number_array.map! { |number| number.to_i }
   end
   
-  def double
-    start=@input.length-2
-    while start>=0
-      @input[start]=(@input[start].to_i)*2
-      start-=2
-    end
-  end
-  
-  def sum
-    @sum=0
-    for i in 0..(@input.length-1)
-      if @input[i].to_i >=10
-        surplus=@input[i].to_i-10
-        @sum=@sum+surplus+1
-      else
-        @sum=@sum+@input[i].to_i
+  def sum_numbers(card_number_array)
+    sum = 0
+    
+    card_number_array.map! do |number|
+      if number > 9
+        number = number.to_s[0].to_i + number.to_s[1].to_i
       end
+      sum += number
     end
+    
+    sum
   end
   
   def check_card
-    double
-    sum
-    if @sum%10 == 0
-      return true
-    else 
-      return false
-    end 
+    sum = sum_numbers(double_every_other)
+    
+    sum % 10 == 0
   end
-  
 end
 
-
-
-# Refactored Solution
-# nothing to be refactored
-
-
-
 # Reflection
-# What was the most difficult part of this challenge for you and your pair? Probably the most difficult part 
-# was figuring out getting the sum of two-digit numbers that resulted from doubling. My partner had the idea to
-# deconstruct then reconstruct the two digits by first subtracting 10 from the two-digit number, then add 1. The
-# logic being that the numbers that were doubled can not be greater than 18. Appling this idea let us iterate a 
-# simple arithematic operation.
-
-# What new methods did you find to help you when you refactored? The initial solution was already basic, so did
-# not find any parts for refactoring.
-
-# What concepts or learnings were you able to solidify in this challenge? The challenge helped me to learn more
-# about calling out  methods within a class, which we did for the check_card method. 
-
-# 
-
-
-
-
-
+# What was the most difficult part of this challenge for you and your pair? For the getmost part, we managed 
+# to work out the assignment without too much difficulty. If there is one aspect that could use improvement, as my partner pointed out, 
+# then we converted the digits using .to_s and .t0_i methods throughout, perhaps too many times than necessary. 
+# What new methods did you find to help you when you refactored? I learned about the split and learned to use the map 
+# method.
+# What concepts or learnings were you able to solidify in this challenge? The challenge reminded me about the use of 
+# destructive vs. nondestructive methods, each vs. map, and the structure of class and the methods within the 
+# class and ways to call.
