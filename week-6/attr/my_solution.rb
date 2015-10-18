@@ -3,58 +3,34 @@
 # I worked on this challenge [by myself, with:]
 
 # I spent [#] hours on this challenge.
-# Release 5
-class NameData
-  attr_reader :name
-  
-  def initialize(name)
-    @name = name
-  end
-  
-end
-
-
-class Greetings
-  def initialize
-    @namedata = NameData.new
-  end
-  
-  def hello(name)
-    puts "Hello " + @namedata.to_s + "! How wonderful to see you today."
-  end
-end
-
-greet = Greetings.new
-greet.hello
-
 
 
 # Reflection
 # Release 1:
-# What are these methods doing? The methods changed the instance variable
-#  age, name, and occupation
+# What are these methods doing? The methods change_my_age, change_my_name, and change_my_oppucation change 
+# the values of the instance variables age, name, and occupation that were set at initialization
 
 # How are they modifying or returning the value of instance variables? 
 # The the original values for the instance variables get replaced by assigning the
-# new values to the instance variables, each in its own method
+# new values to the instance variables, each in its own method.
 
 # Release 2:
-# What changed between the last release and this release? Attribulte  "attr_reader :age"
-# was added; what_is_age_method was commented out as it was no longer needed; instead of
-# calling out the methog what_is_age, call out by using ".age": instead of instance_of_profile.waht_is_name,
+# What changed between the last release and this release? Attribute  "attr_reader :age" was added; 
+# what_is_age_method was commented out as it was no longer needed; instead of calling out method 
+# what_is_age, call out using ".age": instead of instance_of_profile.whatt_is_name, use
 # instance_of_profile.age
 
-# What was replaced? what_is_age method with attribute: attr_reader: age
+# What was replaced? what_is_age method was replaced with attribute: attr_reader: age
 
 # Is this code simpler than the last? yes
 
 # Release 3:
 # What changed between the last release and this release? Added attribute "attr_writer :age"
-#  deleted change_my_age method; the call to change_my_name changed to age and new value: changed
+#  deleted change_my_age method; the call to change_my_name changed to .age and new value: changed
 # from "instance_of_profile.change_my_name" to "instance_of_profile.age = 28"
 
-# What was replaced? Attribute "attr_writer :age" replaced change_my_age mmethod; 
-# instance_of_profile.change_my_name" with "instance_of_profile.age = 28"
+# What was replaced? Attribute "attr_writer :age" replaced change_my_age method; 
+# instance_of_profile.change_my_name" replaced with "instance_of_profile.age = 28"
 
 # Is this code simpler than the last? yes
 
@@ -112,3 +88,40 @@ puts "---- printing all profile info -----"
 sleep 0.8
 instance_of_profile.print_info
 
+
+# Release 5
+
+class NameData
+  attr_reader :name
+  def name
+    @name = "Un"
+  end
+end
+
+
+class Greetings
+  def initialize
+    @nameData = NameData.new
+  end
+  
+  def hello
+    puts "Hello " + @nameData.name.to_s + "! How wonderful to see you today."
+  end
+end
+
+greet = Greetings.new
+greet.hello
+
+
+# Release 6: Reflect
+# What is a reader method? The reader attribute allows variabes to be accessed outside of the class without
+# allowing it to be changed.
+# What is a writer method? The writer attribule allows the values of variables to be changed outside of the class.
+# What do the attr methods do for you? They allow access to variables outside of the class without having to write additional
+# codeto access them. 
+# Should you always use an accessor to cover your bases? Why or Why not? No, the accessor attribute allows both the 
+# variables to be accessed and changed, so for the variables that should stay constant, the accessor attribute could
+# allows for unintended errors. Depending on how the variables used, When using attributes, one should specify variables 
+# as reader, writer, or accessor.
+# What is confusing to you about these methods? So far, there isn't anything really confusing. Perhaps when 
+# dealing with more complex codes?
