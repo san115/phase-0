@@ -1,6 +1,6 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [ with: Edward Gemson].
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
@@ -101,25 +101,21 @@ STATE_DATA.each do |state, popdata|
 end 
 
 
-#=======================================================================
-
-# DRIVER CODE
- # initialize VirusPredictor for each state
-
-
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
-
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
-
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
-
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
-
 
 #=======================================================================
 # Reflection Section
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# They are different ways of notating the keys and values of the hash.
+# What does require_relavtive do? How is it different from require? It indicates an external fles and 
+# it's path that will be needed for the code in the file to run properly. The difference is that relative
+# indicates the relative path.
+# What are some ways to iterate through a hash? One way is the each method.
+# When refactoring virus_effects, what stood out to you about the variables, if anything? The arguments
+# are not necessary, since they are instance variables and can be called to any methods in the class.
+# What concept did you most solidify in this challenge? The use of private and its effect on how the methods
+# of the class gets called. The methods predicted_deaths and speed_of_deaths were called from the method virus_effects
+# because they have been delared as private and cannot be called from outside of the class. Then the method virus_effects, which has not been
+# declared as private, can be called from outside the class and provide access to predicted_deaths and speed_of_death methods.
+
+
 
