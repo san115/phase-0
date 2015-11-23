@@ -91,7 +91,9 @@ function tally_er(votes) {  //takes in a ballot as object
 function calculate_win(voteCount) {
   for(var office in voteCount) { 
     for (var candidate in voteCount[office]) {
-        officers[office] = candidate;
+        if (officers[office] === undefined)
+         officers[office] = candidate;
+        }
        }
       if (voteCount[office][candidate] > voteCount[office][officers[office]]) {
         officers[office] = candidate;
